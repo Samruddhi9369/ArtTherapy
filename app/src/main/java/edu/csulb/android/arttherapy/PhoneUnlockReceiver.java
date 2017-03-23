@@ -13,7 +13,7 @@ public class PhoneUnlockReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         KeyguardManager keyguardManager = (KeyguardManager)context.getSystemService(Context.KEYGUARD_SERVICE);
-        if (keyguardManager.isKeyguardSecure()) {
+        if (!keyguardManager.inKeyguardRestrictedInputMode()) {
             //phone was unlocked
             Notification(context,"Let's make a new drawing!");
 
